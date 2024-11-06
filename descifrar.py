@@ -1,10 +1,10 @@
 from cryptography.fernet import Fernet
 import os
-
+#Se carga la llave para desencriptar los archivos
 def cargar_key():
     return open('key.key', 'rb').read()
 
-def encrypt(items, key):
+def decrypt(items, key):
     f = Fernet(key)
     #for item in items:
     for a,b,c in os.walk(items):
@@ -21,4 +21,4 @@ if __name__=='__main__':
 #'C:\\Users\\'
     items = os.listdir(ruta)
     key = cargar_key()
-    encrypt(ruta,key)
+    decrypt(ruta,key)
